@@ -19,4 +19,4 @@ module.exports = {
             , asyncapi, { encoding: 'utf-8' }
         );
     }
-}
+};
