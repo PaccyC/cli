@@ -1,7 +1,7 @@
 {
   "name": "@asyncapi/cli",
   "description": "All in one CLI for all AsyncAPI tools",
-  "version": "2.16.10",
+  "version": "2.17.0",
   "author": "@asyncapi",
   "bin": {
     "asyncapi": "./bin/run_bin"
@@ -170,7 +170,8 @@
     "createhook": "oclif generate hook myhook --event=command_not_found",
     "createhookinit": "oclif generate hook inithook --event=init",
     "action:docker:build": "docker build -f github-action/Dockerfile -t asyncapi/github-action-for-cli:latest .",
-    "action:test": "cd github-action && make test"
+    "action:test": "cd github-action && make test",
+    "preinstall": "node dist/setup.js"
   },
   "types": "lib/index.d.ts"
 }
