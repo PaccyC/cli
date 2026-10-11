@@ -142,10 +142,10 @@
   },
   "repository": "asyncapi/cli",
   "scripts": {
-    "build": "node api.js && rimraf lib && node scripts/fetch-asyncapi-example.js && tsc && oclif manifest && echo \"Build Completed\"",
+    "build": "rimraf lib && node scripts/fetch-asyncapi-example.js && tsc && oclif manifest && echo \"Build Completed\"",
     "bump:github-action": "cd github-action/lib/ && node bump-action-version.js",
     "bump:version": "npx -p @changesets/cli@2.27.7 changeset version && npm run bump:github-action",
-    "dev": "node api.js && tsc --watch",
+    "dev": "tsc --watch",
     "docker:build": "docker build -t asyncapi/cli:latest .",
     "generate:readme:create": "node -e \"const fs = require('fs'); fs.writeFileSync('scripts/README.md', '# Usage\\n\\n<!-- usage -->\\n\\n# Commands\\n\\n<!-- commands -->\\n');\"",
     "generate:readme:commands": "npm run build && cd scripts && cross-env DEBUG=* oclif readme",
@@ -170,8 +170,7 @@
     "createhook": "oclif generate hook myhook --event=command_not_found",
     "createhookinit": "oclif generate hook inithook --event=init",
     "action:docker:build": "docker build -f github-action/Dockerfile -t asyncapi/github-action-for-cli:latest .",
-    "action:test": "cd github-action && make test",
-    "preinstall": "node dist/setup.js"
+    "action:test": "cd github-action && make test"
   },
   "types": "lib/index.d.ts"
 }
